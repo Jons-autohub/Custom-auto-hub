@@ -17,8 +17,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install OpenAI (works for DeepSeek too)
-        run: pip install openai
+      - name: Install dependencies
+        run: |
+          pip install openai
+          pip install requests
 
       - name: Run article generator
         env:
