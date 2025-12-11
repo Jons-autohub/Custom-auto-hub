@@ -1,9 +1,11 @@
 
 import os
 import datetime
+import requests
+import json
+
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
 API_URL = "https://api.deepseek.com/chat/completions"
-
 
 def ask_deepseek(prompt):
     headers = {
