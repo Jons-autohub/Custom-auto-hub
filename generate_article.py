@@ -1,59 +1,76 @@
 
 import os
 import datetime
-import requests
-import json
+from openai import OpenAI
 
-API_KEY = os.getenv("DEEPSEEK_API_KEY")
-API_URL = "https://api.deepseek.com/chat/completions"
+# Initialize client using GitHub secret
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def ask_deepseek(prompt):
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-
-    data = {
-        "model": "deepseek-chat",
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
-    }
-
-    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
-    response.raise_for_status()
-    return response.json()["choices"][0]["message"]["content"]
-
-
+# --------------------------------------------------------
+# Generate a title
+# --------------------------------------------------------
 def generate_title():
-    prompt = (
-        "Generate a short, catchy, SEO-optimized article title about car mods. "
-        "Keep it between 6–12 words."
+    system_msg = (
+        "You generate short, catchy, SEO-optimized titles for car modification articles. "
+        "Keep them between 6–12 words."
     )
-    return ask_deepseek(prompt).strip()
 
+    resp = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": "Create a new article title."}
+        ],
+        max_tokens=32,
+        temperature=0.7,
+    )
 
+    return resp.choices[0].message["content"].strip()
+
+# --------------------------------------------------------
+# Generate article body
+# --------------------------------------------------------
 def generate_article(title):
-    prompt = (
-        f"Write a 600-word SEO-optimized article about: {title}. "
-        "Include intro, 3 sections, and a conclusion."
+    system_msg = (
+        "Write detailed but readable SEO car modification articles. "
+        "Include an intro paragraph, 3 section headers, and a short conclusion."
     )
-    return ask_deepseek(prompt).strip()
 
+    prompt = f"Write a 600-word SEO-optimized article about: {title}"
 
+    resp = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=900,
+        temperature=0.7,
+    )
+
+    return resp.choices[0].message["content"].strip()
+
+# --------------------------------------------------------
+# Insert into index.html
+# --------------------------------------------------------
 def insert_into_index(html_block):
+    # Read existing HTML
     with open("index.html", "r", encoding="utf-8") as f:
         html = f.read()
 
+    # Replace placeholder
     updated = html.replace(
         "<!-- AUTO_INSERT_ARTICLE_HERE -->",
         html_block + "\n<!-- AUTO_INSERT_ARTICLE_HERE -->"
     )
 
+    # Save updated HTML
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(updated)
 
-
+# --------------------------------------------------------
+# Main
+# --------------------------------------------------------
 def main():
     title = generate_title()
     content = generate_article(title)
@@ -68,7 +85,6 @@ def main():
     )
 
     insert_into_index(html_block)
-
 
 if __name__ == "__main__":
     main()
