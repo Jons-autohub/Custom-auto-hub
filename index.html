@@ -3,54 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon's AutoHub</title>
-
+    <title>Jon's Auto Hub</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #111;
-            color: #fff;
-            text-align: center;
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background: #f8f8f8;
         }
         header {
-            background: #222;
+            background: #111;
+            color: white;
             padding: 20px;
-            font-size: 30px;
+            text-align: center;
+        }
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
             font-weight: bold;
         }
-        .container {
+        nav a:hover {
+            color: #00aaff;
+        }
+        .content {
             padding: 20px;
+            text-align: center;
         }
-        .gallery-link, .blog-link {
-            display: inline-block;
-            padding: 15px 25px;
-            margin: 10px;
-            background: #0c7bff;
+        .content h1 {
+            color: #222;
+        }
+        footer {
+            background: #111;
             color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 18px;
-        }
-        .gallery-link:hover, .blog-link:hover {
-            background: #005fcc;
+            padding: 10px;
+            text-align: center;
+            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-<header>Jon's AutoHub</header>
+<header>
+    <h1>Jon's Auto Hub</h1>
+    <p>Your source for automotive gear & affiliate deals</p>
+</header>
 
-<div class="container">
-    <h2>Welcome to Jon's AutoHub</h2>
-    <p>Your spot for car upgrades, guides, photos, and product recommendations.</p>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-    <a href="gallery.html" class="gallery-link">View Photo Gallery</a>
-    <a href="blog.html" class="blog-link">Blog / Articles</a>
-    <a href="https://www.amazon.com/...?tag=joncrandellca-20" class="blog-link">Shop My Amazon Picks</a>
+<div class="content">
+    <h1>Welcome to Jon's Auto Hub</h1>
+    <p>Browse products, explore the gallery, and check out the latest deals.</p>
 </div>
+
+<footer>
+    © 2025 Jon's Auto Hub
+</footer>
 
 </body>
 </html>
