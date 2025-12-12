@@ -1,82 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery - Jon's AutoHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery - Jon's AutoHub</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #111;
+        color: #fff;
+        text-align: center;
+    }
 
-        header {
-            background: #222;
-            padding: 20px;
-            font-size: 28px;
-            font-weight: bold;
-        }
+    header {
+        background: #222;
+        padding: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
 
-        .gallery-container {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 15px;
-            max-width: 1200px;
-            margin: auto;
-        }
+    .gallery-container {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-gap: 15px;
+    }
 
-        .gallery-container img {
-            width: 100%;
-            border-radius: 10px;
-            border: 2px solid #444;
-            transition: 0.3s;
-        }
+    .gallery-container img {
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-        .gallery-container img:hover {
-            transform: scale(1.05);
-            border-color: #0c7bff;
-        }
+    .gallery-container img:hover {
+        transform: scale(1.05);
+        opacity: 0.85;
+    }
 
-        a.home-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 18px;
-            background: #0c7bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
+    /* Fullscreen viewer */
+    #viewer {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
 
-        a.home-link:hover {
-            background: #005fcc;
-        }
-    </style>
+    #viewer img {
+        max-width: 95%;
+        max-height: 95%;
+        border-radius: 10px;
+    }
+
+    #viewer:active {
+        display: none;
+    }
+</style>
+
+<script>
+function openViewer(src) {
+    document.getElementById("viewer-img").src = src;
+    document.getElementById("viewer").style.display = "flex";
+}
+
+function closeViewer() {
+    document.getElementById("viewer").style.display = "none";
+}
+</script>
 
 </head>
+
 <body>
 
 <header>Photo Gallery</header>
 
-<p>Upload your best car photos and upgrades here!</p>
-
 <div class="gallery-container">
+    <!-- Images inserted automatically -->
+    <img src="20160913_113158.jpg" onclick="openViewer(this.src)">
+    <img src="2010406_211510.jpg" onclick="openViewer(this.src)">
+    <img src="20210405_230943.jpg" onclick="openViewer(this.src)">
+    <img src="20120409_230914.jpg" onclick="openViewer(this.src)">
+    <img src="20210416_074925.jpg" onclick="openViewer(this.src)">
+    <img src="20210422_042653.jpg" onclick="openViewer(this.src)">
+    <img src="20210422_125347.jpg" onclick="openViewer(this.src)">
+    <img src="20210922_085405.jpg" onclick="openViewer(this.src)">
+    <img src="20220329_191839.jpg" onclick="openViewer(this.src)">
+    <img src="20221118_114450.jpg" onclick="openViewer(this.src)">
+    <img src="20230320_170226.jpg" onclick="openViewer(this.src)">
+    <img src="20250127_181747.jpg" onclick="openViewer(this.src)">
 
-    <!-- EXAMPLE IMAGES — Replace these with your own later -->
-    <img src="https://via.placeholder.com/400x250?text=Photo+1">
-    <img src="https://via.placeholder.com/400x250?text=Photo+2">
-    <img src="https://via.placeholder.com/400x250?text=Photo+3">
-    <img src="https://via.placeholder.com/400x250?text=Photo+4">
-
+    <!-- Screenshots -->
+    <img src="Screenshot_20251212-122706_.jpg" onclick="openViewer(this.src)">
+    <img src="Screenshot_20251212-122815_.jpg" onclick="openViewer(this.src)">
+    <img src="Screenshot_20251212-123207_.jpg" onclick="openViewer(this.src)">
+    <img src="Screenshot_20251212-123143_.jpg" onclick="openViewer(this.src)">
+    <img src="Screenshot_20251212-123339_.jpg" onclick="openViewer(this.src)">
+    <img src="Screenshot_20251212-123406_.jpg" onclick="openViewer(this.src)">
 </div>
 
-<a href="index.html" class="home-link">⬅ Back to Home</a>
+<!-- Fullscreen viewer -->
+<div id="viewer" onclick="closeViewer()">
+    <img id="viewer-img">
+</div>
 
 </body>
 </html>
