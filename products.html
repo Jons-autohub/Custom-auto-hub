@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Jon's AutoHub</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #00aaff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .product-card a:hover {
+            background: #0088cc;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Featured Auto Products</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+    <!-- PRODUCT 1 -->
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71jSsqrrc-L._AC_SL1500_.jpg" alt="LED Light Bar" loading="lazy">
+        <h3>LED Light Bar – 2 Pack</h3>
+        <p>Perfect for off-road, trucks, ATVs and more.</p>
+        <a href="YOUR-AFFILIATE-LINK-HERE">View Product</a>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71MbnX1cQ-L._AC_SL1500_.jpg" alt="Car Vacuum" loading="lazy">
+        <h3>High Power Car Vacuum</h3>
+        <p>Strong suction • Compact • Plug-in</p>
+        <a href="YOUR-AFFILIATE-LINK-HERE">View Product</a>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71gRy+VPGIL._AC_SL1500_.jpg" alt="Jump Starter" loading="lazy">
+        <h3>Portable Jump Starter</h3>
+        <p>Start dead batteries instantly.</p>
+        <a href="YOUR-AFFILIATE-LINK-HERE">View Product</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 Jon's AutoHub — Amazon Affiliate Store</p>
+</footer>
+
+</body>
+  </html>
