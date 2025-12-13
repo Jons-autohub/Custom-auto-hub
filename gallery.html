@@ -1,13 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery | Jon’s AutoHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* NAV BAR */
+    header {
+      background: #000;
+      border-bottom: 2px solid #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    /* GALLERY GRID */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #333;
+      background: #000;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      transition: 0.2s;
+      border-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="products.html">Products</a>
+    <a href="articles/">Articles</a>
+  </nav>
+</header>
+
+<h1>Photo Gallery</h1>
+
 <section class="gallery">
-  <img src="assets/images/20210409_230450.jpg" alt="Truck photo">
-  <img src="assets/images/20210409_230914.jpg" alt="Truck photo">
-  <img src="assets/images/20210416_074925.jpg" alt="Truck photo">
-  <img src="assets/images/20210422_042653.jpg" alt="Truck photo">
-  <img src="assets/images/20210422_135339.jpg" alt="Truck photo">
-  <img src="assets/images/20210423_125447.jpg" alt="Truck photo">
-  <img src="assets/images/20220329_191839.jpg" alt="Truck photo">
-  <img src="assets/images/20221118_114450.jpg" alt="Truck photo">
-  <img src="assets/images/20230320_170226.jpg" alt="Truck photo">
-  <img src="assets/images/20231120_172833.jpg" alt="Truck photo">
-  <img src="assets/images/20250127_181747.jpg" alt="Truck photo">
+  <img src="assets/images/20210409_230450.jpg">
+  <img src="assets/images/20210409_230914.jpg">
+  <img src="assets/images/20210416_074925.jpg">
+  <img src="assets/images/20210422_042653.jpg">
+  <img src="assets/images/20210422_135339.jpg">
+  <img src="assets/images/20210423_125447.jpg">
+  <img src="assets/images/20220329_191839.jpg">
+  <img src="assets/images/20221118_114450.jpg">
+  <img src="assets/images/20230320_170226.jpg">
+  <img src="assets/images/20250127_181747.jpg">
 </section>
+
+</body>
